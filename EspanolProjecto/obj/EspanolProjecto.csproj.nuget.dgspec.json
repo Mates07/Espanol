@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1179\\source\\repos\\Espanol\\EspanolProjecto\\EspanolProjecto.csproj": {}
+    "C:\\Users\\1179\\Desktop\\1179 - Matěj Doleček\\Poyecto - Columbio\\Espanol\\EspanolProjecto\\EspanolProjecto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1179\\source\\repos\\Espanol\\EspanolProjecto\\EspanolProjecto.csproj": {
+    "C:\\Users\\1179\\Desktop\\1179 - Matěj Doleček\\Poyecto - Columbio\\Espanol\\EspanolProjecto\\EspanolProjecto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1179\\source\\repos\\Espanol\\EspanolProjecto\\EspanolProjecto.csproj",
+        "projectUniqueName": "C:\\Users\\1179\\Desktop\\1179 - Matěj Doleček\\Poyecto - Columbio\\Espanol\\EspanolProjecto\\EspanolProjecto.csproj",
         "projectName": "EspanolProjecto",
-        "projectPath": "C:\\Users\\1179\\source\\repos\\Espanol\\EspanolProjecto\\EspanolProjecto.csproj",
+        "projectPath": "C:\\Users\\1179\\Desktop\\1179 - Matěj Doleček\\Poyecto - Columbio\\Espanol\\EspanolProjecto\\EspanolProjecto.csproj",
         "packagesPath": "C:\\Users\\1179\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1179\\source\\repos\\Espanol\\EspanolProjecto\\obj\\",
+        "outputPath": "C:\\Users\\1179\\Desktop\\1179 - Matěj Doleček\\Poyecto - Columbio\\Espanol\\EspanolProjecto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\1179\\AppData\\Roaming\\NuGet\\NuGet.Config",
