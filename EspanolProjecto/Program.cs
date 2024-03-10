@@ -15,16 +15,17 @@
                 input.Trim();
                 if (input == "1")
                 {
-                    app.RunEspanol(0);
+                    app.RunEspanol(true);
                 }
                 else if (input == "2")
                 {
-                    app.RunEnglish(0);
+                    app.RunEnglish(false);
                 }
                 else if (string.IsNullOrEmpty(input)) 
                 {
                     break;
                 }
+                break;
             }
         }
     }

@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace EspanolProjecto;
 
 internal class AppRun
 {
-    public void RunEspanol(int beta)
+    public void RunEspanol(bool espanol)
     {
         int alfa = 1;
         Console.WriteLine("Materiales:");
@@ -62,27 +66,163 @@ internal class AppRun
         Console.WriteLine("?Quieres verlo en inglés?");
         string input = Console.ReadLine();
         input.Trim();
-        if (beta == 3)
+        if (espanol == false)
         {
-            Step1English(alfa);
+            Step1English(espanol);
         }
         if (input == "si")
         {
-            RunEnglish(alfa);
+            RunEnglish(espanol);
         }
         else
         {
-            Step1Espanol(beta);
+            Step1Espanol(espanol);
         }
 
     }
 
-    public void Step1Espanol(int beta)
+    public void Step1Espanol(bool espanol)
     {
         Console.WriteLine("Designar ubicación");
-        Console.WriteLine("");
+        Console.WriteLine("Contras las vigas laterales al tamaňo requerido");
+        Console.WriteLine("?Quieres verlo en inglés?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "si")
+        {
+            Step1English(espanol);
+        }
+        else if (espanol == true)
+        {
+            Step2Espanol(espanol);
+        }
+        else if (espanol == false)
+        { 
+            Step2English(espanol);
+        }
     }
-    public void RunEnglish(int alfa)
+
+    public void Step2Espanol(bool espanol)
+    {
+        Console.WriteLine("Cortar los tableros de conexión al tamaňo requerido y atornillaros");
+        Console.WriteLine("?Quieres verlo en inglés?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "si")
+        {
+            Step2English(espanol);
+        }
+        else if (espanol == true)
+        {
+            Step3Espanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step3English(espanol);
+        }
+    }
+    public void Step3Espanol(bool espanol)
+    {
+        Console.WriteLine("Colocación de los tirantes transversales");
+        Console.WriteLine("Atornillar las tablas de conexíon Quitar el");
+        Console.WriteLine("Travesaňo falso Tener en cuenta la altura de la");
+        Console.WriteLine("Barra trapecio");
+        Console.WriteLine("?Quieres verlo en inglés?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "si")
+        {
+            Step3English(espanol);
+        }
+        else if (espanol == true)
+        {
+            Step4Espanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step4English(espanol);
+        }
+    }
+    public void Step4Espanol(bool espanol)
+    {
+        Console.WriteLine("Preperfoar los agujeros");
+        Console.WriteLine("Instalación de ganchos");
+        Console.WriteLine("Insercion de vigas");
+        Console.WriteLine("Transversales fabricíon de puntales");
+        Console.WriteLine("?Quieres verlo en inglés?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "si")
+        {
+            Step4English(espanol);
+        }
+        else if (espanol == true)
+        {
+            Step5Espanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step5English(espanol);
+        }
+    }
+    
+    public void Step5Espanol(bool espanol)
+    {
+        Console.WriteLine("Excavacion de agujros");
+        Console.WriteLine("Atornillado de los pies de los");
+        Console.WriteLine("Postes Nivelación de la");
+        Console.WriteLine("estructura hormigonado de bases de columnas");
+        Console.WriteLine("?Quieres verlo en inglés?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "si")
+        {
+            Step5English(espanol);
+        }
+        else if (espanol == true)
+        {
+            Step6Espanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step6English(espanol);
+        }
+    }
+    public void Step6Espanol(bool espanol)
+    {
+        Console.WriteLine("Medición de posición");
+        Console.WriteLine("Excavar un agujero");
+        Console.WriteLine("Atornillar el pie del");
+        Console.WriteLine("postes hormigonar columnas");
+        Console.WriteLine("?Quieres verlo en inglés?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "si")
+        {
+            Step6English(espanol);
+        }
+        else if (espanol == true)
+        {
+            Step7Espanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step7English(espanol);
+        }
+    }
+    public void Step7Espanol(bool espanol)
+    {
+        Console.WriteLine("Desbarbando los bordes");
+        Console.WriteLine("Aplicación de oscilante");
+        Console.WriteLine("tinte Suspensión");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "si")
+        {
+            Step5English(espanol);
+        }
+    }
+    public void RunEnglish(bool espanol)
     {
         Console.WriteLine("Materials:");
         Console.WriteLine("1. Screws with an eye");
@@ -135,22 +275,164 @@ internal class AppRun
         Console.WriteLine("Do you want to see it in Spanish?");
         string input = Console.ReadLine();
         input.Trim();
-        if (alfa == 3)
-        {
-            Step1English(alfa);
-        }
         if (input == "yes")
         {
-            RunEnglish(alfa);
+            RunEspanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step1English(espanol);
         }
         else
         {
-            Step1Espanol(alfa);
+            Step1Espanol(espanol);
         }
     }
 
-    public void Step1English(int alfa)
+    public void Step1English(bool espanol)
     {
+        Console.WriteLine("Determining the location and creating a sketch");
+        Console.WriteLine("Cutting the side beams to the required size");
+        Console.WriteLine("Do you want to see it in Spanish?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "yes")
+        {
+            Step1Espanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step2English(espanol);
+        }
+        else
+        {
+            Step2Espanol(espanol);
+        }
+    }
 
+    public void Step2English(bool espanol)
+    {
+        Console.WriteLine("Cutting the connecting boards to the required size and screwing them");
+        Console.WriteLine("Do you want to see it in Spanish?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "yes")
+        {
+            Step2Espanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step3English(espanol);
+        }
+        else
+        {
+            Step3Espanol(espanol);
+        }
+    }
+
+    public void Step3English(bool espanol)
+    {
+        Console.WriteLine("Attaching the transverse braces");
+        Console.WriteLine("Screwing the connecting boards");
+        Console.WriteLine("Removing the dummy cross member");
+        Console.WriteLine("Taking into account the height of the trapeze bar");
+        Console.WriteLine("Do you want to see it in Spanish?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "yes")
+        {
+            Step3Espanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step4English(espanol);
+        }
+        else
+        {
+            Step4Espanol(espanol);
+        }
+    }
+
+    public void Step4English(bool espanol)
+    {
+        Console.WriteLine("Pre-drilling the holes");
+        Console.WriteLine("Installation of hooks");
+        Console.WriteLine("Insertion of cross beams");
+        Console.WriteLine("Fabrication of struts");
+        Console.WriteLine("Do you want to see it in Spanish?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "yes")
+        {
+            Step4Espanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step5English(espanol);
+        }
+        else
+        {
+            Step5Espanol(espanol);
+        }
+    }
+
+    public void Step5English(bool espanol)
+    {
+        Console.WriteLine("Excavation of holes");
+        Console.WriteLine("Screwing the feet of the posts");
+        Console.WriteLine("Leveling the structure");
+        Console.WriteLine("Concreting of column bases");
+        Console.WriteLine("Do you want to see it in Spanish?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "yes")
+        {
+            Step5Espanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step6English(espanol);
+        }
+        else
+        {
+            Step6Espanol(espanol);
+        }
+    }
+
+    public void Step6English(bool espanol)
+    {
+        Console.WriteLine("Position measurement");
+        Console.WriteLine("Excavating a hole");
+        Console.WriteLine("Screwing the post foot");
+        Console.WriteLine("Concreting of columns");
+        Console.WriteLine("Do you want to see it in Spanish?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "yes")
+        {
+            Step6Espanol(espanol);
+        }
+        else if (espanol == false)
+        {
+            Step7English(espanol);
+        }
+        else
+        {
+            Step7Espanol(espanol);
+        }
+    }
+
+    public void Step7English(bool espanol)
+    {
+        Console.WriteLine("Deburring the edges");
+        Console.WriteLine("Stain application");
+        Console.WriteLine("Swing suspension");
+        Console.WriteLine("Do you want to see it in Spanish?");
+        string input = Console.ReadLine();
+        input.Trim();
+        if (input == "yes")
+        {
+            Step7Espanol(espanol);
+        }
     }
 }
